@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work - HYPGRAM</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="Screenshot (56).png">
+</head>
+
+<body>
+
+<div id="cursor"></div>
+
+<nav id="nav">
+    <a href="index.html"><img src="Screenshot (55).png" id="logo" alt="HYPGRAM"></a>
+
+    <div id="nav-links">
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div id="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div id="menu-btn">
+<span></span><span></span><span></span>
+</div>
+</nav>
+
+<div id="mobile-menu">
+
+    <div id="close-menu">✕</div>
+
+    <a href="services.html">Services</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+
+</div>
+
+<section class="reveal">
+<h1>Selected Work</h1>
+<p>High-impact website projects built for growth, speed, and conversion.</p>
+<div class="work-hero-image">
+  <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Design team working on website">
+</div>
+</section>
+
+<section class="work-grid">
+
+<div class="work-item reveal">
+  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="SaaS landing page design">
+  <div class="work-copy">
+    <h2>SaaS Landing Page — <span class="percent" data-target="120">+0%</span> signups</h2>
+    <p>Optimized UX & conversion-focused redesign</p>
+  </div>
+</div>
+
+<div class="work-item reveal">
+  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80" alt="E-commerce fashion website">
+  <div class="work-copy">
+    <h2>E-commerce Fashion — <span class="percent" data-target="80">+0%</span> revenue</h2>
+    <p>Performance optimization & mobile UX</p>
+  </div>
+</div>
+
+<div class="work-item reveal">
+  <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80" alt="Local business website redesign">
+  <div class="work-copy">
+    <h2>Local Business — <span class="percent" data-target="200">+0%</span> leads</h2>
+    <p>Full redesign + SEO structure</p>
+  </div>
+</div>
+
+</section>
+
+<section class="reveal">
+<h2>Start your project</h2>
+<a href="./syp.html" class="btn">Start your project</a>
+</section>
+
+<footer id="footer">
+
+    <img src="Screenshot (55).png" id="footer-logo" alt="HYPGRAM">
+
+    <p>© 2026 HYPGRAM — Web Design & Development</p>
+
+    <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61572033601111" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/hypgramwda1/" target="_blank">Instagram</a>
+        <a href="https://x.com/hypgramwda1" target="_blank">X</a>
+        <a href="https://www.youtube.com/@hypgramwda1" target="_blank">YouTube</a>
+        <a href="https://www.threads.com/@hypgramwda1" target="_blank">Threads</a>
+    </div>
+
+    <div class="footer-cta">
+        <a href="./syp.html" target="_blank" class="btn">
+            Start your project
+        </a>
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+<script>
+const percentSpans = document.querySelectorAll('.percent');
+
+function animatePercent(el) {
+  const target = Number(el.dataset.target) || 0;
+  let current = 0;
+  const duration = 1500;
+  const step = Math.max(Math.floor(duration / Math.max(target, 1)), 10);
+
+  const interval = setInterval(() => {
+    current += 1;
+    el.textContent = `+${current}%`;
+    if (current >= target) {
+      clearInterval(interval);
+    }
+  }, step);
+}
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animatePercent(entry.target);
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+percentSpans.forEach(span => observer.observe(span));
+</script>
+</body>
+</html>
