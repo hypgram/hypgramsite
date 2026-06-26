@@ -665,3 +665,18 @@ footer {
 .form-page {
   margin-top: 100px;
 }
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 60px auto;
+    max-width: 1200px;
+}
+
+.service-card {
+    flex: 1 1 320px;
+    max-width: 350px;
+    text-align: center;
+}
