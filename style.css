@@ -697,9 +697,13 @@ footer {
 
 .service-card{
     background:#111;
-    border:1px solid #222;
+    border:1px solid #333;
     border-radius:18px;
-    padding:35px 30px;
+    padding:40px;
+    min-height:260px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
     text-align:center;
     transition:.35s ease;
 }
@@ -711,14 +715,16 @@ footer {
 }
 
 .service-card h3{
-    margin-bottom:15px;
-    font-size:1.5rem;
+    color:#fff;
+    font-size:1.6rem;
+    margin-bottom:18px;
+    font-weight:700;
 }
 
 .service-card p{
-    color:#bdbdbd;
-    line-height:1.7;
-    font-size:15px;
+    color:#e5e5e5;
+    line-height:1.8;
+    font-size:16px;
 }
 
 @media(max-width:950px){
