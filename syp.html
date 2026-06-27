@@ -67,36 +67,54 @@
   <label>Phone</label>
   <input type="tel" name="phone" required>
 
-  <label>What kind of site do you need?</label>
-  <select name="service" required>
+  <!-- NUOVO SELETTORE SERVIZI -->
+  <label>What kind of service do you need?</label>
+  <select name="service" id="service-select" required>
     <option value="">Select</option>
-    <option value="Showcase">Showcase</option>
-    <option value="E-commerce">E-commerce</option>
-    <option value="Blog">Blog</option>
-    <option value="Portfolio">Portfolio</option>
-    <option value="Business">Business</option>
-    <option value="Event">Event</option>
-    <option value="Personal">Personal</option>
-    <option value="Membership">Membership</option>
-    <option value="No-profit">Non-profit</option>
-    <option value="Forum">Forum / Community</option>
-    <option value="Membership Site">Membership / Subscription</option>
-    <option value="Restaurants">Restaurants</option>
-    <option value="E-learning">Educational / E-learning</option>
-    <option value="News / Magazine">News / Online Magazine</option>
-    <option value="Interactive">Interactive</option>
-    <option value="Booking / Reservation">Booking / Reservation</option>
-    <option value="Wedding">Wedding</option>
-    <option value="Travel">Travel</option>
-    <option value="Memorial">Memorial</option>
-    <option value="Shop(doesn't ecommerce)">Shop (doesn't ecommerce)</option>
-    <option value="Company">Company</option>
+    <option value="Web Design">Web Design</option>
+    <option value="Web Development">Web Development</option>
+    <option value="App Development">App Development</option>
+    <option value="SEO Optimization">SEO Optimization</option>
+    <option value="UI/UX Design">UI/UX Design</option>
+    <option value="Brand Identity">Brand Identity</option>
+    <option value="Website Maintenance">Website Maintenance</option>
+    <option value="Performance Optimization">Performance Optimization</option>
+    <option value="Website Redesign">Website Redesign</option>
   </select>
+
+  <!-- SELETTORE TIPO SITO (NASCOSTO DI DEFAULT) -->
+  <div id="site-type-container" style="display: none;">
+    <label>What kind of site do you need?</label>
+    <select name="site_type" id="site-type-select">
+      <option value="">Select</option>
+      <option value="Showcase">Showcase</option>
+      <option value="E-commerce">E-commerce</option>
+      <option value="Blog">Blog</option>
+      <option value="Portfolio">Portfolio</option>
+      <option value="Business">Business</option>
+      <option value="Event">Event</option>
+      <option value="Personal">Personal</option>
+      <option value="Membership">Membership</option>
+      <option value="No-profit">Non-profit</option>
+      <option value="Forum">Forum / Community</option>
+      <option value="Membership Site">Membership / Subscription</option>
+      <option value="Restaurants">Restaurants</option>
+      <option value="E-learning">Educational / E-learning</option>
+      <option value="News / Magazine">News / Online Magazine</option>
+      <option value="Interactive">Interactive</option>
+      <option value="Booking / Reservation">Booking / Reservation</option>
+      <option value="Wedding">Wedding</option>
+      <option value="Travel">Travel</option>
+      <option value="Memorial">Memorial</option>
+      <option value="Shop(doesn't ecommerce)">Shop (doesn't ecommerce)</option>
+      <option value="Company">Company</option>
+    </select>
+  </div>
 
   <label>Budget</label>
   <select name="budget" required>
     <option value="">Select</option>
-    <option value="1000"> 1000 €</option>
+    <option value="1000">1000 €</option>
     <option value="2000">2000 €</option>
     <option value="3000">3000 €</option>
     <option value="4000">4000 €</option>
@@ -133,6 +151,27 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- LINGUAGGIO DI LOGICA PER MOSTRARE/NASCONDERE IL CAMPO -->
+<script>
+  const serviceSelect = document.getElementById('service-select');
+  const siteTypeContainer = document.getElementById('site-type-container');
+  const siteTypeSelect = document.getElementById('site-type-select');
+
+  serviceSelect.addEventListener('change', function() {
+    const value = this.value;
+    
+    // Se seleziona Web Design o Website Redesign
+    if (value === 'Web Design' || value === 'Website Redesign') {
+      siteTypeContainer.style.display = 'block';
+      siteTypeSelect.setAttribute('required', 'required'); // Diventa obbligatorio
+    } else {
+      siteTypeContainer.style.display = 'none';
+      siteTypeSelect.removeAttribute('required'); // Non è più obbligatorio se nascosto
+      siteTypeSelect.value = ''; // Resetta la selezione interna
+    }
+  });
+</script>
 
 </body>
 </html>
